@@ -18,6 +18,7 @@ namespace MRUV_Solver
         // para la resolución del problema.
         public static LinkedList<VariableSolver> variables = new LinkedList<VariableSolver>();
 
+
         // Constructor de Clase.
         public VariableSolver(string aName, string aIndexString, float aValue = 0, bool aHasValueOfVariable = false) 
         {
@@ -33,6 +34,7 @@ namespace MRUV_Solver
             // Añadir el objeto a "variables"
             variables.AddLast(this);
         }
+
 
         // Función para averiguar si el problema es resoluble (o no)
         public static bool IsProblemSolvable()
@@ -54,6 +56,14 @@ namespace MRUV_Solver
                 return true;
             }
             return false;
+        }
+
+
+        // Método para limpiar las LinkedList
+        public static void CleanLinkedLists()
+        {
+            indexStrings.Clear();
+            variables.Clear();
         }
     }
 }

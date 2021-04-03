@@ -6,16 +6,17 @@ namespace MRUV_Solver
     {
         static void Main(string[] args)
         {
-            // Crear los objetos "Variable".
-            VariableSolver vf = new VariableSolver("Velocidad Final", "VF");
-            VariableSolver vi = new VariableSolver("Velocidad Inicial", "VI");
-            VariableSolver acc = new VariableSolver("Aceleración", "A");
-            VariableSolver tim = new VariableSolver("Tiempo", "T");
-            VariableSolver dis = new VariableSolver("Distancia", "X");
 
             // Bucle de interfaz de usuario.
             do
             {
+                // Crear los objetos "Variable".
+                VariableSolver vf = new VariableSolver("Velocidad Final", "VF");
+                VariableSolver vi = new VariableSolver("Velocidad Inicial", "VI");
+                VariableSolver acc = new VariableSolver("Aceleración", "A");
+                VariableSolver tim = new VariableSolver("Tiempo", "T");
+                VariableSolver dis = new VariableSolver("Distancia", "X");
+
                 // Imprimir la interfaz de consola
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("|===========: Buenos Días :===========|\n" + 
@@ -98,11 +99,19 @@ namespace MRUV_Solver
                 // ¿Es posible resolver el problema?
                 if (VariableSolver.IsProblemSolvable() == true)
                 {
-                    // Resolver el problema.
+                    // Resolver el problema
+                    // ===
+                    // Aquí debería estar la función para resolver el pinche problema..
+                    // ===
+
+                    Console.BackgroundColor = ConsoleColor.Magenta;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine($"El resultado es: pinche_resultado");
+                    Console.ResetColor();
                 }
 
                 // ¿Desea seguir?
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.Write("\n¿Desea salir del programa? (S/N): ");
                 string exitProgram = Console.ReadLine();
                 exitProgram = exitProgram.ToUpper();
@@ -118,11 +127,14 @@ namespace MRUV_Solver
                 // Limpiar Consola
                 if (cleanConsole == "S" || cleanConsole == "Y") Console.Clear();
 
+                // Limpiar las Listas
+                VariableSolver.CleanLinkedLists();
+
             } while (true);
 
             // Salir
             Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine("\nPresione cualquier tecla para salir...");
+            Console.WriteLine("Presione cualquier tecla para salir...");
             Console.ResetColor();
             Console.ReadKey(true);
 
