@@ -123,6 +123,11 @@ namespace MRUV_Solver
                         Console.ResetColor();
                     }
                     
+                } else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("No hay suficientes variables para resolver el problema.");
+                    Console.ResetColor();
                 }
 
                 // ¿Desea seguir?
