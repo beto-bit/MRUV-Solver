@@ -20,16 +20,33 @@ namespace MRUV_Solver
                                   "║   Tiempo ------------------ T       ║\n" +
                                   "║   Distancia --------------- X       ║\n" +
                                   "╚═════════════════════════════════════╝\n");
+
+                // Obtener la variable que se busca
+                while (true)
+                {
+                    string indexString = Console.ReadLine();
+                }
+            
             } while (false);
         }
     }
 
     class VariableSolver
     {
-        // Constructor de Clase
-        public VariableSolver() 
-        {
+        // Fields
+        public string name;
+        public string indexString;
+        public float value;
+        public bool hasValueOfVariable;
 
+        // Constructor de Clase
+        public VariableSolver(string aName, string aIndexString, float aValue, bool aHasValueOfVariable) 
+        {
+            // Asignar los valores
+            name = aName;
+            indexString = aIndexString;
+            value = aValue;
+            hasValueOfVariable = aHasValueOfVariable;
         }
     }
 }
