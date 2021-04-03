@@ -70,6 +70,9 @@ namespace MRUV_Solver
                     string userHasVariable = Console.ReadLine();
                     userHasVariable = userHasVariable.ToUpper();
 
+                    // Declaramos que sí tenemos el valor de la variable.
+                    variable.hasValueOfVariable = true;
+
                     if (userHasVariable == "S" || userHasVariable == "Y")
                     {
                         // Bucle para el try-catch
@@ -99,15 +102,27 @@ namespace MRUV_Solver
                 // ¿Es posible resolver el problema?
                 if (VariableSolver.IsProblemSolvable() == true)
                 {
-                    // Resolver el problema
-                    // ===
-                    // Aquí debería estar la función para resolver el pinche problema..
-                    // ===
+                    // Resolver el problema.
+                    try
+                    {
+                        float res = VariableSolver.SolveProblem(indexString, vf, vi, acc, tim, dis);
 
-                    Console.BackgroundColor = ConsoleColor.Magenta;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine($"El resultado es: pinche_resultado");
-                    Console.ResetColor();
+                        // Desplegar el resultado.
+                        Console.BackgroundColor = ConsoleColor.Magenta;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine($"\nEl resultado es: {res}");
+                        Console.ResetColor();
+                    }
+
+                    // En caso de error.
+                    catch (System.Exception)
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkRed;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("\nPor algún motivo no se pudo resolver tu problema :(.");
+                        Console.ResetColor();
+                    }
+                    
                 }
 
                 // ¿Desea seguir?
