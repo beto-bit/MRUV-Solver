@@ -33,5 +33,27 @@ namespace MRUV_Solver
             // Añadir el objeto a "variables"
             variables.AddLast(this);
         }
+
+        // Función para averiguar si el problema es resoluble (o no)
+        public static bool IsProblemSolvable()
+        {
+            int counter = 0;
+
+            // Contar cuantas variables tenemos
+            foreach (VariableSolver variable in variables)
+            {
+                if (variable.hasValueOfVariable)
+                {
+                    counter++;
+                }
+            }
+
+            // Si tenemos 3 o más, lo podemos resolver
+            if (counter >= 3)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

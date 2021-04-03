@@ -76,12 +76,14 @@ namespace MRUV_Solver
                         {
                             try
                             {
+                                // Obtener el valor de la variable
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.Write("Introduzca el valor de la variable: ");
                                 variable.value = (float) Convert.ToDouble(Console.ReadLine());
                                 Console.ResetColor();
                                 break;
                             }
+                            // En caso de error 
                             catch (System.Exception)
                             {
                                 Console.ForegroundColor = ConsoleColor.Red;
@@ -93,8 +95,37 @@ namespace MRUV_Solver
                     } 
                 }
 
-            
-            } while (false);
+                // ¿Es posible resolver el problema?
+                if (VariableSolver.IsProblemSolvable() == true)
+                {
+                    // Resolver el problema.
+                }
+
+                // ¿Desea seguir?
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("\n¿Desea salir del programa? (S/N): ");
+                string exitProgram = Console.ReadLine();
+                exitProgram = exitProgram.ToUpper();
+
+                // Salir del Programa
+                if (exitProgram == "S" || exitProgram == "Y") break;
+
+                // ¿Limpiar consola?
+                Console.Write("\n¿Desea limpiar la consola? (S/N): ");
+                string cleanConsole = Console.ReadLine();
+                cleanConsole = cleanConsole.ToUpper();
+
+                // Limpiar Consola
+                if (cleanConsole == "S" || cleanConsole == "Y") Console.Clear();
+
+            } while (true);
+
+            // Salir
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("\nPresione cualquier tecla para salir...");
+            Console.ResetColor();
+            Console.ReadKey(true);
+
         }
     }
 }
