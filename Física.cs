@@ -18,6 +18,7 @@ namespace MRUV_Solver
             do
             {
                 // Imprimir la interfaz de consola
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("|===========: Buenos Días :===========|\n" + 
                                   "<><><><><><><><><><><><>><><><><><><><>\n" + 
                                   "╔═════════════════════════════════════╗\n" +
@@ -29,6 +30,7 @@ namespace MRUV_Solver
                                   "║   Tiempo ------------------ T       ║\n" +
                                   "║   Distancia --------------- X       ║\n" +
                                   "╚═════════════════════════════════════╝\n");
+                Console.ResetColor();
 
                 // Obtener la variable que se busca.
                 while (true)
@@ -41,7 +43,9 @@ namespace MRUV_Solver
                     if (VariableSolver.indexStrings.Contains(indexString)) break;
 
                     // En caso no exista
-                    Console.WriteLine("Por favor introduzca un índice válido.");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Por favor introduzca un índice válido.\n");
+                    Console.ResetColor();
                 }
             
             } while (false);
