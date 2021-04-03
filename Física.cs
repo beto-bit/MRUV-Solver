@@ -70,9 +70,6 @@ namespace MRUV_Solver
                     string userHasVariable = Console.ReadLine();
                     userHasVariable = userHasVariable.ToUpper();
 
-                    // Declaramos que sí tenemos el valor de la variable.
-                    variable.hasValueOfVariable = true;
-
                     if (userHasVariable == "S" || userHasVariable == "Y")
                     {
                         // Bucle para el try-catch
@@ -85,6 +82,9 @@ namespace MRUV_Solver
                                 Console.Write("Introduzca el valor de la variable: ");
                                 variable.value = (float) Convert.ToDouble(Console.ReadLine());
                                 Console.ResetColor();
+                                
+                                // Declaramos que sí tenemos el valor de la variable.
+                                variable.hasValueOfVariable = true;
                                 break;
                             }
                             // En caso de error 
